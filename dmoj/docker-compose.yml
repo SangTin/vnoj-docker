@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./database/:/var/lib/mysql/
+      - ./full_backup.sql:/docker-entrypoint-initdb.d/init.sql:ro
     env_file: [environment/mysql.env, environment/mysql-admin.env]
     networks: [db]
     #ports:
